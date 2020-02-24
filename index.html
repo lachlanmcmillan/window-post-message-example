@@ -4,6 +4,30 @@
   </head>
   <body>
     <h1>OUTER PAGE</h1>
-    <iframe src="/inner-frame.html"></iframe>
+
+    <iframe id="iframe-inner" src="/inner-frame.html"></iframe>
+
+    <br />
+    <br />
+
+    <button id="btn-send-message">Send Message to Iframe</button>
+    
+    <script>
+      const iframeInner = document.getElementById("iframe-inner");
+      const btnSendMessage = document.getElementById("btn-send-message")
+
+      btnSendMessage.addEventListener("click", () => {
+        const message = {
+          key1: "hello",
+          key2: "moto"
+        };
+        const targetOrigin = "*";
+
+        iframeInner.contentWindow.postMessage(message, targetOrigin);
+      })
+
+
+
+    </script>
   </body>
 </html>

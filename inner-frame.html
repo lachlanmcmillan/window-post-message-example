@@ -4,5 +4,20 @@
   </head>
   <body>
     <h2>IFRAME</h2>
+
+    <p id="text"></p>
+
+    <script>
+      const pText = document.getElementById("text");
+
+      window.addEventListener("message", receiveMessage, false);
+
+      function receiveMessage(event) {
+        pText.innerHTML = "Message received! Check console."
+        // if (event.origin !== "http://example.org:8080")
+        //   return;
+        console.log('event: ', event);
+      }
+    </script>
   </body>
 </html>
